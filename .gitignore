@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+checkpoints*/
+outputs/cache/
+outputs_smoke/
+config_smoke.json
+IA3_ICT4403_FGAI_Final.pdf
+wandb/
+

@@ -1,0 +1,17 @@
+{
+  "train": {
+    "examples": 8000,
+    "mean_source_chars": 112.84,
+    "mean_target_chars": 116.85
+  },
+  "validation": {
+    "examples": 1000,
+    "mean_source_chars": 112.24,
+    "mean_target_chars": 116.3
+  },
+  "test": {
+    "examples": 1000,
+    "mean_source_chars": 110.29,
+    "mean_target_chars": 113.47
+  }
+}
