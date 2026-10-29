@@ -423,7 +423,10 @@ def train_mt5(
     tokenized_train = preprocess_mt5(splits["train"], tokenizer, cfg)
     tokenized_validation = preprocess_mt5(splits["validation"], tokenizer, cfg)
     use_bf16 = device.type == "cuda" and torch.cuda.is_bf16_supported()
-    use_fp16 = device.type == "cuda" and not use_bf16
+    # mT5 is unstable in fp16 (NaN gradients were reproduced in the smoke test).
+    # Use bfloat16 when supported and otherwise retain fp32, which also keeps the
+    # notebook reliable on older Colab T4 GPUs.
+    use_fp16 = False
     args = Seq2SeqTrainingArguments(
         output_dir=str(checkpoint_dir / "trainer"),
         num_train_epochs=cfg.mt5_epochs,
